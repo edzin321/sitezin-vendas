@@ -3,96 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Loja de scripts exclusivos para Roblox. Melhore sua experiência de jogo com scripts de auto-farm, speed hack e aimbot.">
+    <meta name="keywords" content="Roblox, scripts, auto-farm, speed hack, aimbot, jogos">
     <title>Loja de Scripts Roblox</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.05); }
+        .fade-in { animation: fadeIn 1s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .accordion-content.open { max-height: none; }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-900 text-white font-sans">
     <!-- Cabeçalho -->
-    <header class="bg-blue-600 text-white p-4">
+    <header class="bg-gradient-to-r from-blue-700 to-purple-600 p-6 sticky top-0 z-10 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Loja de Scripts Roblox</h1>
-            <nav>
-                <a href="#home" class="mx-2 hover:underline">Início</a>
-                <a href="#scripts" class="mx-2 hover:underline">Scripts</a>
-                <a href="#cart" class="mx-2 hover:underline">Carrinho</a>
-                <a href="#contact" class="mx-2 hover:underline">Contato</a>
+            <h1 class="text-3xl font-extrabold tracking-tight">Loja de Scripts Roblox</h1>
+            <nav class="space-x-6">
+                <a href="#home" class="hover:text-blue-300 transition" aria-label="Ir para a seção Início">Início</a>
+                <a href="#scripts" class="hover:text-blue-300 transition" aria-label="Ir para a seção Scripts">Scripts</a>
+                <a href="#cart" class="hover:text-blue-300 transition" aria-label="Ir para a seção Carrinho">Carrinho</a>
+                <a href="#contact" class="hover:text-blue-300 transition" aria-label="Ir para a seção Contato">Contato</a>
             </nav>
         </div>
     </header>
 
     <!-- Seção Principal -->
-    <section id="home" class="py-10 text-center bg-white">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-4">Bem-vindo à Loja de Scripts Roblox!</h2>
-            <p class="text-lg mb-6">Os melhores scripts para turbinar sua experiência no Roblox. Explore nossa coleção e comece agora!</p>
-            <a href="#scripts" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Ver Scripts</a>
+    <section id="home" class="py-20 text-center bg-gray-800 fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">Scripts incríveis para Roblox!</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Eleve sua experiência no Roblox com nossos scripts exclusivos. Confira nossa coleção e comece a dominar!</p>
+            <a href="#scripts" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-500 transition hover-scale" aria-label="Explorar scripts disponíveis">Explorar Scripts</a>
         </div>
     </section>
 
     <!-- Seção de Scripts -->
-    <section id="scripts" class="py-10 bg-gray-100">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Nossos Scripts</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section id="scripts" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Nossos Scripts</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Script 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">Script de Auto-Farm</h3>
-                    <p class="text-gray-600 mb-4">Automatize a coleta de recursos em seus jogos favoritos do Roblox.</p>
-                    <p class="text-lg font-bold mb-4">R$ 29,99</p>
-                    <button onclick="addToCart('Script de Auto-Farm', 29.99)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Adicionar ao Carrinho</button>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale">
+                    <h3 class="text-2xl font-semibold mb-3 text-blue-400">Script de Auto-Farm</h3>
+                    <p class="text-gray-300 mb-4">Automatize a coleta de recursos e maximize seus ganhos nos jogos do Roblox.</p>
+                    <p class="text-xl font-bold mb-4 text-green-400">R$ 29,99</p>
+                    <button onclick="addToCart('Script de Auto-Farm', 29.99)" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-500 transition w-full mb-4" aria-label="Adicionar Script de Auto-Farm ao carrinho">Adicionar ao Carrinho</button>
+                    <button onclick="toggleReviews('reviews-1')" class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-500 transition w-full" aria-label="Ver avaliações do Script de Auto-Farm">Ver Avaliações</button>
+                    <div id="reviews-1" class="accordion-content">
+                        <div class="mt-4 p-4 bg-gray-700 rounded-lg">
+                            <p class="font-semibold">João S. ★★★★★</p>
+                            <p class="text-gray-300">"Funciona perfeitamente no meu jogo favorito! Super fácil de usar."</p>
+                            <p class="font-semibold mt-2">Maria L. ★★★★☆</p>
+                            <p class="text-gray-300">"Ótimo script, mas precisei de ajuda para configurar."</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Script 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">Script de Speed Hack</h3>
-                    <p class="text-gray-600 mb-4">Aumente sua velocidade em qualquer jogo do Roblox com este script.</p>
-                    <p class="text-lg font-bold mb-4">R$ 19,99</p>
-                    <button onclick="addToCart('Script de Speed Hack', 19.99)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Adicionar ao Carrinho</button>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale">
+                    <h3 class="text-2xl font-semibold mb-3 text-blue-400">Script de Speed Hack</h3>
+                    <p class="text-gray-300 mb-4">Corra mais rápido que seus adversários com este script de velocidade.</p>
+                    <p class="text-xl font-bold mb-4 text-green-400">R$ 19,99</p>
+                    <button onclick="addToCart('Script de Speed Hack', 19.99)" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-500 transition w-full mb-4" aria-label="Adicionar Script de Speed Hack ao carrinho">Adicionar ao Carrinho</button>
+                    <button onclick="toggleReviews('reviews-2')" class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-500 transition w-full" aria-label="Ver avaliações do Script de Speed Hack">Ver Avaliações</button>
+                    <div id="reviews-2" class="accordion-content">
+                        <div class="mt-4 p-4 bg-gray-700 rounded-lg">
+                            <p class="font-semibold">Lucas P. ★★★★★</p>
+                            <p class="text-gray-300">"A velocidade é insana! Transformou meu gameplay."</p>
+                            <p class="font-semibold mt-2">Ana C. ★★★★☆</p>
+                            <p class="text-gray-300">"Muito bom, mas às vezes dá lag em servidores cheios."</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Script 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-2">Script de Aimbot</h3>
-                    <p class="text-gray-600 mb-4">Melhore sua precisão em jogos de tiro com este script de aimbot.</p>
-                    <p class="text-lg font-bold mb-4">R$ 39,99</p>
-                    <button onclick="addToCart('Script de Aimbot', 39.99)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Adicionar ao Carrinho</button>
+                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover-scale">
+                    <h3 class="text-2xl font-semibold mb-3 text-blue-400">Script de Aimbot</h3>
+                    <p class="text-gray-300 mb-4">Acerte todos os alvos com precisão usando nosso script de aimbot.</p>
+                    <p class="text-xl font-bold mb-4 text-green-400">R$ 39,99</p>
+                    <button onclick="addToCart('Script de Aimbot', 39.99)" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-500 transition w-full mb-4" aria-label="Adicionar Script de Aimbot ao carrinho">Adicionar ao Carrinho</button>
+                    <button onclick="toggleReviews('reviews-3')" class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-500 transition w-full" aria-label="Ver avaliações do Script de Aimbot">Ver Avaliações</button>
+                    <div id="reviews-3" class="accordion-content">
+                        <div class="mt-4 p-4 bg-gray-700 rounded-lg">
+                            <p class="font-semibold">Pedro R. ★★★★★</p>
+                            <p class="text-gray-300">"Aimbot perfeito, nunca perco um tiro agora!"</p>
+                            <p class="font-semibold mt-2">Sofia M. ★★★☆☆</p>
+                            <p class="text-gray-300">"Funciona bem, mas precisa de ajustes em alguns jogos."</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Seção de Carrinho -->
-    <section id="cart" class="py-10 bg-white">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Carrinho de Compras</h2>
-            <div id="cart-items" class="mb-6"></div>
-            <p id="cart-total" class="text-lg font-bold mb-4">Total: R$ 0,00</p>
-            <button onclick="checkout()" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">Finalizar Compra</button>
-        </div>
-    </section>
-
-    <!-- Seção de Contato -->
-    <section id="contact" class="py-10 bg-gray-100">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Entre em Contato</h2>
-            <p class="text-lg mb-4">Dúvidas ou suporte? Envie-nos uma mensagem!</p>
-            <div class="max-w-md mx-auto">
-                <input type="text" placeholder="Seu Nome" class="w-full p-2 mb-4 border rounded">
-                <input type="email" placeholder="Seu Email" class="w-full p-2 mb-4 border rounded">
-                <textarea placeholder="Sua Mensagem" class="w-full p-2 mb-4 border rounded" rows="4"></textarea>
-                <button onclick="sendMessage()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Enviar</button>
+    <section id="cart" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Carrinho de Compras</h2>
+            <div id="cart-items" class="mb-8 space-y-4"></div>
+            <p id="cart-total" class="text-xl font-bold mb-6 text-green-400">Total: R$ 0,00</p>
+            <div class="flex justify-center space-x-4">
+                <button onclick="clearCart()" class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-500 transition" aria-label="Limpar todos os itens do carrinho">Limpar Carrinho</button>
+                <button onclick="checkout()" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-500 transition" aria-label="Finalizar a compra">Finalizar Compra</button>
             </div>
         </div>
     </section>
 
+    <!-- Seção de Contato -->
+    <section id="contact" class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12">Entre em Contato</h2>
+            <p class="text-xl mb-6 max-w-2xl mx-auto">Precisa de suporte ou tem alguma dúvida? Fale comigo pelo formulário ou nas redes sociais!</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://discord.gg/your-discord-placeholder" target="_blank" class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-500 transition" aria-label="Junte-se ao nosso servidor no Discord">Junte-se ao meu Discord</a>
+                <a href="https://youtube.com/@your-channel-placeholder" target="_blank" class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-500 transition" aria-label="Visite nosso canal no YouTube">Visite meu YouTube</a>
+            </div>
+            <form class="max-w-md mx-auto" onsubmit="event.preventDefault(); sendMessage();">
+                <input type="text" placeholder="Seu Nome" class="w-full p-3 mb-4 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Digite seu nome" required>
+                <input type="email" placeholder="Seu Email" class="w-full p-3 mb-4 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Digite seu email" required>
+                <textarea placeholder="Sua Mensagem" class="w-full p-3 mb-4 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" aria-label="Digite sua mensagem" required></textarea>
+                <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition w-full" aria-label="Enviar mensagem">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Rodapé -->
-    <footer class="bg-blue-600 text-white p-4 text-center">
-        <p>&copy; 2025 Loja de Scripts Roblox. Todos os direitos reservados.</p>
+    <footer class="bg-gray-800 p-6 text-center">
+        <p class="text-gray-300">© 2025 Loja de Scripts Roblox. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        let cart = [];
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
         function addToCart(name, price) {
             cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
             updateCart();
         }
 
@@ -102,11 +159,17 @@
             cartItems.innerHTML = '';
             let total = 0;
 
-            cart.forEach(item => {
+            cart.forEach((item, index) => {
                 total += item.price;
                 const itemElement = document.createElement('div');
-                itemElement.className = 'flex justify-between mb-2';
-                itemElement.innerHTML = `<span>${item.name}</span><span>R$ ${item.price.toFixed(2)}</span>`;
+                itemElement.className = 'flex justify-between items-center p-4 bg-gray-700 rounded-lg';
+                itemElement.innerHTML = `
+                    <span>${item.name}</span>
+                    <div class="flex items-center space-x-4">
+                        <span>R$ ${item.price.toFixed(2)}</span>
+                        <button onclick="removeFromCart(${index})" class="bg-red-500 text-white px-3 py-1 rounded-full hover:bg-red-400" aria-label="Remover ${item.name} do carrinho">Remover</button>
+                    </div>
+                `;
                 cartItems.appendChild(itemElement);
             });
 
@@ -119,13 +182,28 @@
                 return;
             }
             alert('Compra finalizada! Você será redirecionado para o pagamento. (Funcionalidade de pagamento não implementada neste exemplo)');
-            cart = [];
-            updateCart();
+            clearCart();
         }
 
         function sendMessage() {
-            alert('Mensagem enviada! Entraremos em contato em breve. (Funcionalidade de contato não implementada neste exemplo)');
+            const name = document.querySelector('input[placeholder="Seu Nome"]').value;
+            const email = document.querySelector('input[placeholder="Seu Email"]').value;
+            const message = document.querySelector('textarea[placeholder="Sua Mensagem"]').value;
+            if (name && email && message) {
+                alert('Mensagem enviada! Entraremos em contato em breve. (Funcionalidade de contato não implementada neste exemplo)');
+                document.querySelector('form').reset();
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
         }
+
+        function toggleReviews(id) {
+            const reviews = document.getElementById(id);
+            reviews.classList.toggle('open');
+        }
+
+        // Carregar carrinho ao iniciar
+        document.addEventListener('DOMContentLoaded', updateCart);
     </script>
 </body>
 </html>
