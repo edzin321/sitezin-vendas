@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Scripts Roblox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Cabeçalho -->
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Loja de Scripts Roblox</h1>
+            <nav>
+                <a href="#home" class="mx-2 hover:underline">Início</a>
+                <a href="#scripts" class="mx-2 hover:underline">Scripts</a>
+                <a href="#cart" class="mx-2 hover:underline">Carrinho</a>
+                <a href="#contact" class="mx-2 hover:underline">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Principal -->
+    <section id="home" class="py-10 text-center bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold mb-4">Bem-vindo à Loja de Scripts Roblox!</h2>
+            <p class="text-lg mb-6">Os melhores scripts para turbinar sua experiência no Roblox. Explore nossa coleção e comece agora!</p>
+            <a href="#scripts" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Ver Scripts</a>
+        </div>
+    </section>
+
+    <!-- Seção de Scripts -->
+    <section id="scripts" class="py-10 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Nossos Scripts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Script 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Script de Auto-Farm</h3>
+                    <p class="text-gray-600 mb-4">Automatize a coleta de recursos em seus jogos favoritos do Roblox.</p>
+                    <p class="text-lg font-bold mb-4">R$ 29,99</p>
+                    <button onclick="addToCart('Script de Auto-Farm', 29.99)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Adicionar ao Carrinho</button>
+                </div>
+                <!-- Script 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Script de Speed Hack</h3>
+                    <p class="text-gray-600 mb-4">Aumente sua velocidade em qualquer jogo do Roblox com este script.</p>
+                    <p class="text-lg font-bold mb-4">R$ 19,99</p>
+                    <button onclick="addToCart('Script de Speed Hack', 19.99)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Adicionar ao Carrinho</button>
+                </div>
+                <!-- Script 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Script de Aimbot</h3>
+                    <p class="text-gray-600 mb-4">Melhore sua precisão em jogos de tiro com este script de aimbot.</p>
+                    <p class="text-lg font-bold mb-4">R$ 39,99</p>
+                    <button onclick="addToCart('Script de Aimbot', 39.99)" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Carrinho -->
+    <section id="cart" class="py-10 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-8">Carrinho de Compras</h2>
+            <div id="cart-items" class="mb-6"></div>
+            <p id="cart-total" class="text-lg font-bold mb-4">Total: R$ 0,00</p>
+            <button onclick="checkout()" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">Finalizar Compra</button>
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contact" class="py-10 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Entre em Contato</h2>
+            <p class="text-lg mb-4">Dúvidas ou suporte? Envie-nos uma mensagem!</p>
+            <div class="max-w-md mx-auto">
+                <input type="text" placeholder="Seu Nome" class="w-full p-2 mb-4 border rounded">
+                <input type="email" placeholder="Seu Email" class="w-full p-2 mb-4 border rounded">
+                <textarea placeholder="Sua Mensagem" class="w-full p-2 mb-4 border rounded" rows="4"></textarea>
+                <button onclick="sendMessage()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Enviar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-blue-600 text-white p-4 text-center">
+        <p>&copy; 2025 Loja de Scripts Roblox. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                total += item.price;
+                const itemElement = document.createElement('div');
+                itemElement.className = 'flex justify-between mb-2';
+                itemElement.innerHTML = `<span>${item.name}</span><span>R$ ${item.price.toFixed(2)}</span>`;
+                cartItems.appendChild(itemElement);
+            });
+
+            cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+            alert('Compra finalizada! Você será redirecionado para o pagamento. (Funcionalidade de pagamento não implementada neste exemplo)');
+            cart = [];
+            updateCart();
+        }
+
+        function sendMessage() {
+            alert('Mensagem enviada! Entraremos em contato em breve. (Funcionalidade de contato não implementada neste exemplo)');
+        }
+    </script>
+</body>
+</html>
